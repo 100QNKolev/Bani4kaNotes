@@ -4,7 +4,7 @@ import uuid from 'uuid';
 const BASE_URL = 'https://github.com/100QNKolev/Bani4kaNotes';
 const API_KEY = '60a79799e3b6e02545edab48';
 
-export function getEvents(){
+export function getNotes(){
     return fetch(BASE_URL,
         {
             method: 'GET',
@@ -15,7 +15,7 @@ export function getEvents(){
         }
     )
     .then(response => response.json())
-    .then(events => events.map(item => ({
+    .then(notes => notes.map(item => ({
         ...item,
         date: moment(item.date, "DD/MM/YYYY HH:mm").toDate(),
     })));
