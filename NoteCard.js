@@ -4,16 +4,16 @@ import { formatDate, getCountdownParts } from "./util";
 import { deleteNote } from "./NoteService.js";
 import * as RootNavigation from "./RootNavigation";
 
-export default function NoteCard({ eventItem }) {
-  const countdown = getCountdownParts(eventItem.date);
+export default function NoteCard({ noteItem }) {
+  const countdown = getCountdownParts(noteItem.date);
 
   return (
     <View style={styles.noteCard}>
       <View style={styles.noteCardHeader}>
-        <Text style={styles.title}>{eventItem.title}</Text>
-        <Text style={styles.date}>{formatDate(eventItem.date)}</Text>
+        <Text style={styles.title}>{noteItem.title}</Text>
+        <Text style={styles.date}>{formatDate(noteItem.date)}</Text>
       </View>
-      <Text style={styles.description}>{eventItem.description}</Text>
+      <Text style={styles.description}>{noteItem.description}</Text>
       <View style={styles.counterContainer}>
         <View style={styles.counter}>
           <Text style={styles.counterText}>{countdown.days}</Text>
@@ -35,17 +35,17 @@ export default function NoteCard({ eventItem }) {
       <View style={styles.mt10}>
         <Button
           onPress={() =>
-            RootNavigation.navigate("EventEditForm", {
-              id: eventItem._id,
+            RootNavigation.navigate("NoteEditForm", {
+              id: noteItem._id,
             })
           }
-          title="Edit event"
+          title="Edit note"
         />
       </View>
       <View style={styles.mt10}>
         <Button
           onPress={() => {
-            deleteNote(eventItem._id);
+            deleteNote(noteItem._id);
             RootNavigation.navigate("NoteIsDeleted", {});
           }}
           title="Delete note"

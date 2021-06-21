@@ -1,16 +1,30 @@
 import React, { Component } from "react";
 import { View, Button, TextInput, StyleSheet } from "react-native";
 import DateTimePicker from "@react-native-community/datetimepicker";
-import { formatDate } from './util';
-import { addNote } from "./NoteService";
+import { formatDate } from "./util";
+import { editNote, getNoteById } from "./NoteService";
 
-class NoteForm extends Component {
+class NoteEditForm extends Component {
   state = {
+    id: "",
     title: "",
     date: Date.now(),
     description: "",
-    showDatePicker: false
+    showDatePicker: false,
   };
+
+  componentDidMount() {
+    const noteId = this.props.route.params["id"];
+    getNoteById(noteId)
+    .then(item => {
+        this.setState({
+            id: item._id,
+            title: item.title,
+            date: item.date,
+            description: item.description
+        })
+    })
+  }
 
   handleChangeTitle = (value) => {
     this.setState({ title: value });
@@ -25,12 +39,12 @@ class NoteForm extends Component {
   };
 
   handleDatePickerHide = () => {
-    this.setState({ showDatePicker: false });  
+    this.setState({ showDatePicker: false });
   };
 
   handleDatePicked = (note, selectedDate) => {
     const currentDate = selectedDate || this.state.date;
-    this.setState({date: currentDate});
+    this.setState({ date: currentDate });
     this.handleDatePickerHide();
   };
 
@@ -51,36 +65,36 @@ class NoteForm extends Component {
           editable={!this.state.showDatePicker}
           onFocus={this.handleDatePress}
         />
-        {
-          this.state.showDatePicker &&
+        {this.state.showDatePicker && (
           <DateTimePicker
             value={this.state.date}
             mode="datetime"
             is24Hour={true}
             onChange={this.handleDatePicked}
           />
-        }
+        )}
         <TextInput
           style={styles.textInput}
-          placeholder="Note..."
+          placeholder="Note description"
           value={this.state.description}
           onChangeText={this.handleChangeDescription}
         />
-        <Button title="Add" onPress={
-            () => {
-              addNote({
-                title: this.state.title,
-                date: formatDate(this.state.date),
-                description: this.state.description
-              })
-              .then(() => this.props.navigation.navigate('ThankYou'));
-            }
-        } />
+        <Button
+          title="Edit"
+          onPress={() => {
+            editNote({
+              id: this.state.id,
+              title: this.state.title,
+              date: formatDate(this.state.date),
+              description: this.state.description,
+            }).then(() => this.props.navigation.goBack());
+          }}
+        />
       </View>
     );
   }
 }
-export default NoteForm;
+export default NoteEditForm;
 
 const styles = StyleSheet.create({
   textInput: {

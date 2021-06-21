@@ -7,17 +7,17 @@ import { getNotes } from "./NoteService";
 
 class NoteList extends Component {
   state = {
-    events: [],
+    notes: [],
   };
 
   componentDidMount() {
     this.props.navigation.addListener('focus', () => {
-      getNotes().then(events => this.setState({events}));
+      getNotes().then(notes => this.setState({notes}));
     });
     
     setInterval(() => {
       this.setState({
-        events: this.state.events.map(item => ({
+        notes: this.state.notes.map(item => ({
           ...item,
           updateTime: Date.now()
         }))
@@ -29,8 +29,8 @@ class NoteList extends Component {
     return (
       <View style={styles.listView}>
         <FlatList
-          data={this.state.events}
-          renderItem={({ item }) => <NoteCard eventItem={item} />}
+          data={this.state.notes}
+          renderItem={({ item }) => <NoteCard noteItem={item} />}
         ></FlatList>
         <Button
           onPress={() => this.props.navigation.navigate("NoteForm")}
@@ -41,7 +41,7 @@ class NoteList extends Component {
   }
 }
 
-export default EventList;
+export default NoteList;
 
 const styles = StyleSheet.create({
   listView: {
