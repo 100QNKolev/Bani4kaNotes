@@ -36,3 +36,23 @@ export function addNote({title, date, description}) {
         .then(result => result.json())
         .catch(error => console.error(error));
 }
+
+export function getNoteById(id) {
+    return fetch(`${BASE_URL}/${id}`,
+        {
+            method: 'GET',
+            headers: {
+                'content-type': 'application/json',
+                'x-apikey': API_KEY
+            }
+        }
+    )
+    .then(response => response.json())
+    .then(item => {
+        return {
+            ...item,
+            date: moment(item.date, "DD/MM/YYYY HH:mm").toDate()
+        }
+    })
+    .catch(error => console.error(error));    
+}
