@@ -4,12 +4,12 @@ import { formatDate, getCountdownParts } from "./util";
 import { deleteNote } from "./NoteService.js";
 import * as RootNavigation from "./RootNavigation";
 
-export default function EventCard({ eventItem }) {
+export default function NoteCard({ eventItem }) {
   const countdown = getCountdownParts(eventItem.date);
 
   return (
-    <View style={styles.eventCard}>
-      <View style={styles.eventCardHeader}>
+    <View style={styles.noteCard}>
+      <View style={styles.noteCardHeader}>
         <Text style={styles.title}>{eventItem.title}</Text>
         <Text style={styles.date}>{formatDate(eventItem.date)}</Text>
       </View>
@@ -56,7 +56,7 @@ export default function EventCard({ eventItem }) {
 }
 
 const styles = StyleSheet.create({
-  eventCard: {
+  noteCard: {
     borderColor: "black",
     borderWidth: 1,
     marginBottom: 16,
@@ -64,7 +64,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#04b032",
     width: "100%",
   },
-  eventCardHeader: {
+  noteCardHeader: {
     flex: 1,
     flexDirection: "row",
   },
