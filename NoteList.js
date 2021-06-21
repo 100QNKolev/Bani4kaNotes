@@ -34,7 +34,7 @@ class NoteList extends Component {
         ></FlatList>
         <Button
           onPress={() => this.props.navigation.navigate("NoteForm")}
-          title="Add note"
+          title="Добави бележка"
         />
       </View>
     );

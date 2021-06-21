@@ -80,7 +80,7 @@ class NoteEditForm extends Component {
           onChangeText={this.handleChangeDescription}
         />
         <Button
-          title="Edit"
+          title="Редактирай"
           onPress={() => {
             editNote({
               id: this.state.id,

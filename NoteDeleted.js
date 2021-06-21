@@ -8,7 +8,7 @@ class NoteDeleted extends Component {
                 <Text>
                     The note has been deleted.
                 </Text>
-                <Button title='Go to notes'
+                <Button title='Към бележки'
                 onPress={
                     () => this.props.navigation.navigate('NoteList')
                 }

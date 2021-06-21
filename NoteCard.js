@@ -39,7 +39,7 @@ export default function NoteCard({ noteItem }) {
               id: noteItem._id,
             })
           }
-          title="Edit note"
+          title="Редактирай"
         />
       </View>
       <View style={styles.mt10}>
@@ -48,7 +48,7 @@ export default function NoteCard({ noteItem }) {
             deleteNote(noteItem._id);
             RootNavigation.navigate("NoteIsDeleted", {});
           }}
-          title="Delete note"
+          title="Изтрий"
         />
       </View>
     </View>
@@ -61,11 +61,12 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     marginBottom: 16,
     padding: 16,
-    backgroundColor: "#04b032",
+    backgroundColor: "#5e5e5e",
     width: "100%",
   },
   noteCardHeader: {
     flex: 1,
+    backgroundColor: "#5e5e5e",
     flexDirection: "row",
   },
   title: {
@@ -89,7 +90,7 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: "row",
     justifyContent: "space-between",
-    paddingHorizontal: "5%", //padding отляво и отдясно
+    paddingHorizontal: "5%", 
     marginTop: 30,
   },
   counter: {

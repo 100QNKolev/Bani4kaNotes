@@ -39,7 +39,7 @@ class NoteForm extends Component {
       <View>
         <TextInput
           style={styles.textInput}
-          placeholder="Note title"
+          placeholder="Заглавие на бележката"
           value={this.state.title}
           onChangeText={this.handleChangeTitle}
         />
@@ -62,11 +62,11 @@ class NoteForm extends Component {
         }
         <TextInput
           style={styles.textInput}
-          placeholder="Note..."
+          placeholder="Опиши бележката тук"
           value={this.state.description}
           onChangeText={this.handleChangeDescription}
         />
-        <Button title="Add" onPress={
+        <Button title="Добави" onPress={
             () => {
               addNote({
                 title: this.state.title,
