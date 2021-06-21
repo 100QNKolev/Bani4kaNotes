@@ -56,3 +56,32 @@ export function getNoteById(id) {
     })
     .catch(error => console.error(error));    
 }
+
+export function editNote({id, title, date, description}) {
+    return fetch(`${BASE_URL}/${id}`,
+        {
+            method: 'PUT',
+            headers: {
+                'content-type': 'application/json',
+                'x-apikey': API_KEY
+            },
+            body: JSON.stringify({
+                title, date, description
+            })
+        })
+        .then(result => result.json())
+        .catch(error => console.error(error));
+}
+
+export function deleteNote(id) {
+    return fetch(`${BASE_URL}/${id}`,
+        {
+            method: 'DELETE',
+            headers: {
+                'content-type': 'application/json',
+                'x-apikey': API_KEY
+            }
+        })
+        .then(result => result.json())
+        .catch(error => console.error(error));
+}
