@@ -27,10 +27,11 @@ export default function App() {
       <Stack.Screen name='NoteList' component={NoteList} options={{title: 'Notes'}} />
       <Stack.Screen name='NoteForm' component={NoteForm} options={{title: 'Add Note'}} />
       <Stack.Screen name='NoteEditForm' component={NoteEditForm} options={{title: 'Edit Note'}} />
-      <Stack.Screen name='ThankYou' component={ThankYou} options={{title: 'Thank You'}} />
       <Stack.Screen name='NoteDeleted' component={NoteDeleted} options={{title: 'Delete'}} />
       </Stack.Navigator>
     </NavigationContainer>
   );
 }
+
+// // <Stack.Screen name='ThankYou' component={ThankYou} options={{title: 'Thank You'}} />
 
