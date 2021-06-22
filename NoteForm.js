@@ -19,15 +19,6 @@ class NoteForm extends Component {
   handleChangeDescription = (value) => {
     this.setState({ description: value });
   };
-
-  handleDatePress = () => {
-    this.setState({ showDatePicker: true });
-  };
-
-  handleDatePickerHide = () => {
-    this.setState({ showDatePicker: false });  
-  };
-
   handleDatePicked = (note, selectedDate) => {
     const currentDate = selectedDate || this.state.date;
     this.setState({date: currentDate});
@@ -43,23 +34,6 @@ class NoteForm extends Component {
           value={this.state.title}
           onChangeText={this.handleChangeTitle}
         />
-
-        <TextInput
-          style={styles.textInput}
-          placeholder="Note date"
-          value={formatDate(this.state.date)}
-          editable={!this.state.showDatePicker}
-          onFocus={this.handleDatePress}
-        />
-        {
-          this.state.showDatePicker &&
-          <DateTimePicker
-            value={this.state.date}
-            mode="datetime"
-            is24Hour={true}
-            onChange={this.handleDatePicked}
-          />
-        }
         <TextInput
           style={styles.textInput}
           placeholder="Опиши бележката тук"
@@ -70,7 +44,7 @@ class NoteForm extends Component {
             () => {
               addNote({
                 title: this.state.title,
-                date: formatDate(this.state.date),
+               
                 description: this.state.description
               })
               .then(() => this.props.navigation.navigate('ThankYou'));
@@ -84,7 +58,7 @@ export default NoteForm;
 
 const styles = StyleSheet.create({
   textInput: {
-    backgroundColor: "white",
+    backgroundColor: "#649FFF",
     padding: 10,
     marginTop: 10,
     marginBottom: 10,

@@ -53,29 +53,13 @@ class NoteEditForm extends Component {
       <View>
         <TextInput
           style={styles.textInput}
-          placeholder="Note title"
+          placeholder="Заглавие"
           value={this.state.title}
           onChangeText={this.handleChangeTitle}
         />
-
         <TextInput
           style={styles.textInput}
-          placeholder="Note date"
-          value={formatDate(this.state.date)}
-          editable={!this.state.showDatePicker}
-          onFocus={this.handleDatePress}
-        />
-        {this.state.showDatePicker && (
-          <DateTimePicker
-            value={this.state.date}
-            mode="datetime"
-            is24Hour={true}
-            onChange={this.handleDatePicked}
-          />
-        )}
-        <TextInput
-          style={styles.textInput}
-          placeholder="Note description"
+          placeholder="Описание"
           value={this.state.description}
           onChangeText={this.handleChangeDescription}
         />

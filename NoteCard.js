@@ -11,27 +11,8 @@ export default function NoteCard({ noteItem }) {
     <View style={styles.noteCard}>
       <View style={styles.noteCardHeader}>
         <Text style={styles.title}>{noteItem.title}</Text>
-        <Text style={styles.date}>{formatDate(noteItem.date)}</Text>
       </View>
       <Text style={styles.description}>{noteItem.description}</Text>
-      <View style={styles.counterContainer}>
-        <View style={styles.counter}>
-          <Text style={styles.counterText}>{countdown.days}</Text>
-          <Text style={styles.counterLabel}>Days</Text>
-        </View>
-        <View style={styles.counter}>
-          <Text style={styles.counterText}>{countdown.hours}</Text>
-          <Text style={styles.counterLabel}>Hours</Text>
-        </View>
-        <View style={styles.counter}>
-          <Text style={styles.counterText}>{countdown.minutes}</Text>
-          <Text style={styles.counterLabel}>Minutes</Text>
-        </View>
-        <View style={styles.counter}>
-          <Text style={styles.counterText}>{countdown.seconds}</Text>
-          <Text style={styles.counterLabel}>Seconds</Text>
-        </View>
-      </View>
       <View style={styles.mt10}>
         <Button
           onPress={() =>
@@ -61,17 +42,17 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     marginBottom: 16,
     padding: 16,
-    backgroundColor: "#5e5e5e",
+    backgroundColor: "#0B4AB0",
     width: "100%",
   },
   noteCardHeader: {
     flex: 1,
-    backgroundColor: "#5e5e5e",
+    backgroundColor: "#0B4AB0",
     flexDirection: "row",
   },
   title: {
     fontSize: 38,
-    color: "#fff",
+    color: "#ffffff",
     textAlign: "left",
     flexBasis: "80%",
   },
@@ -84,28 +65,7 @@ const styles = StyleSheet.create({
   description: {
     fontSize: 24,
     marginTop: 16,
-    color: "#fff",
-  },
-  counterContainer: {
-    flex: 1,
-    flexDirection: "row",
-    justifyContent: "space-between",
-    paddingHorizontal: "5%", 
-    marginTop: 30,
-  },
-  counter: {
-    flexBasis: "25%",
-  },
-  counterText: {
-    fontSize: 40,
-    textAlign: "center",
-    color: "#fff",
-  },
-  counterLabel: {
-    fontSize: 18,
-    textAlign: "center",
-    textTransform: "uppercase",
-    color: "#fff",
+    color: "#fffff",
   },
   mt10: {
     marginTop: 10,
