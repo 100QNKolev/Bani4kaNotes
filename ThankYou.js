@@ -6,9 +6,9 @@ class ThankYou extends Component {
         return (
             <View>
                 <Text>
-                    You added note
+                    Ти добави нова бележка! 
                 </Text>
-                <Button title='Go to notes'
+                <Button title='Назад'
                 onPress={
                     () => this.props.navigation.navigate('NoteList')
                 }

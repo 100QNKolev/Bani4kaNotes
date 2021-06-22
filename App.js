@@ -26,7 +26,7 @@ export default function App() {
       <Stack.Navigator initialRouteName='NoteList'>
       <Stack.Screen name='NoteList' component={NoteList} options={{title: 'Simple Notes'}} />
       <Stack.Screen name='NoteForm' component={NoteForm} options={{title: 'Добави'}} />
-      <Stack.Screen name='ThankYou' component={ThankYou} options={{title: 'Изтрий тази бележка'}} />
+      <Stack.Screen name='ThankYou' component={ThankYou} options={{title: 'Бележката е добавена!'}} />
       <Stack.Screen name='NoteEditForm' component={NoteEditForm} options={{title: 'Редактирай тази бележка'}} />
       <Stack.Screen name='NoteDeleted' component={NoteDeleted} options={{title: 'Изтрий'}} />
       </Stack.Navigator>
