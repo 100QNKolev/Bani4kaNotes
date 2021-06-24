@@ -2,12 +2,14 @@ import React from 'react';
 import NoteList from './NoteList';
 import NoteForm from './NoteForm';
 import NoteEditForm from './NoteEditForm';
- import ThankYou from './ThankYou';
+import ThankYou from './ThankYou';
 import NoteDeleted from './NoteDeleted';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { navigationRef, isReadyRef } from './RootNavigation';
+import Background from "./img/Video.mp4"
 const Stack = createStackNavigator();
+
 
 export default function App() {
   React.useEffect(() => {
@@ -32,7 +34,26 @@ export default function App() {
       </Stack.Navigator>
     </NavigationContainer>
   )
-}
+    }
+  
+  
+    <video
+    autoPlay
+    loop
+    muted
+    style={{
+      position: "fixed",
+      width: "100%",
+      left: "50%",
+      top: "50%",
+      height: "100%",
+      objectFit: "cover",
+      transform: "translate(-50%, -50%)",
+      zIndex: "-1",
+    }}
+  >
+    <source src={Background} type="video/mp4" />
+  </video>
 
 
 
