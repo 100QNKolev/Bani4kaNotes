@@ -35,7 +35,6 @@ export default function App() {
     </NavigationContainer>
   )
     }
-  //IVAN E GEY
   
     
 
