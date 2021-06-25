@@ -2,5 +2,8 @@
   "webpackServerPort": 19006,
   "devToolsPort": 19002,
   "expoServerPort": 19000,
-  "packagerPort": 19000
+  "packagerPort": 19000,
+  "expoServerNgrokUrl": "https://nf-9gn.anonymous.bani4kanotes.exp.direct",
+  "packagerNgrokUrl": "https://packager.nf-9gn.anonymous.bani4kanotes.exp.direct",
+  "ngrokPid": 2608
 }

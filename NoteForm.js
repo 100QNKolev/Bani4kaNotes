@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { View, Button, TextInput, StyleSheet } from "react-native";
+import { View, Button, TextInput, StyleSheet, ImageBackground } from "react-native";
 import DateTimePicker from "@react-native-community/datetimepicker";
 import { formatDate } from './util';
 import { addNote } from "./NoteService";
@@ -11,6 +11,7 @@ class NoteForm extends Component {
     description: "",
     showDatePicker: false
   };
+  image = { uri: "https://wallpapercave.com/wp/wp7002713.jpg" };
 
   handleChangeTitle = (value) => {
     this.setState({ title: value });
@@ -28,6 +29,7 @@ class NoteForm extends Component {
   render() {
     return (
       <View>
+                 <ImageBackground source={this.image} style={styles.image}>
         <TextInput
           style={styles.textInput}
           placeholder="Заглавие на бележката"
@@ -50,6 +52,7 @@ class NoteForm extends Component {
               .then(() => this.props.navigation.navigate('ThankYou'));
             }
         } />
+        </ImageBackground>
       </View>
     );
   }
@@ -59,8 +62,13 @@ export default NoteForm;
 const styles = StyleSheet.create({
   textInput: {
     backgroundColor: "#9EBFF5",
-    padding: 10,
+    padding: 15,
     marginTop: 10,
     marginBottom: 10,
   },
+  image: {
+    flex: 1,
+    resizeMode: "stretch",
+    justifyContent: "center"
+  }
 });

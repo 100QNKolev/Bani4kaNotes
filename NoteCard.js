@@ -38,8 +38,8 @@ export default function NoteCard({ noteItem }) {
 
 const styles = StyleSheet.create({
   noteCard: {
-    borderColor: "black",
-    borderWidth: 1,
+    borderColor: "#0a196b",
+    borderWidth: 5,
     marginBottom: 16,
     padding: 16,
     backgroundColor: "#9EBFF5",
@@ -53,13 +53,15 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 35,
     color: "#00000",
-    textAlign: "left",
-    flexBasis: "80%",
+    textAlign: "center",
+    flexBasis: "100%",
   },
   description: {
     fontSize: 25,
-    marginTop: 16,
+    marginTop: 30,
     color: "#00000",
+    textAlign: "center",
+    flexBasis: "100%",
   },
   mt10: {
     marginTop: 10,
