@@ -58,7 +58,7 @@ export default NoteForm;
 
 const styles = StyleSheet.create({
   textInput: {
-    backgroundColor: "#649FFF",
+    backgroundColor: "#9EBFF5",
     padding: 10,
     marginTop: 10,
     marginBottom: 10,

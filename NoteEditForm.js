@@ -82,7 +82,7 @@ export default NoteEditForm;
 
 const styles = StyleSheet.create({
   textInput: {
-    backgroundColor: "white",
+    backgroundColor: "#9EBFF5",
     padding: 10,
     marginTop: 10,
     marginBottom: 10,
